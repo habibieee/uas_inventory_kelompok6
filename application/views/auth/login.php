@@ -14,17 +14,18 @@
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4">LOGIN PAGE</h1>
                                 </div>
-                                <?= $this->session->flashdata('message') ; ?>
-                                <form class="user" method="POST" action="<?=base_url('auth');?>">
+                                <?= $this->session->flashdata('message'); ?>
+                                <form class="user" method="POST" action="<?= base_url('auth'); ?>">
                                     <div class="form-group">
-                                        <input type="text" class="form-control form-control-user" id="nama"
-                                            placeholder="Enter Username..." name="nama" value="<?=set_value('nama');?>">
-                                        <?= form_error('nama','<small class="text-danger pl-3">','</small>') ?>
+                                        <input type="text" class="form-control form-control-user" id="username"
+                                            placeholder="Enter Username..." name="username"
+                                            value="<?= set_value('nama'); ?>">
+                                        <?= form_error('nama', '<small class="text-danger pl-3">', '</small>') ?>
                                     </div>
                                     <div class="form-group">
                                         <input type="password" class="form-control form-control-user" id="password"
                                             placeholder="Password" name="password">
-                                        <?= form_error('password','<small class="text-danger pl-3">','</small>') ?>
+                                        <?= form_error('password', '<small class="text-danger pl-3">', '</small>') ?>
                                     </div>
 
                                     <button type="submit" class="btn btn-primary btn-user btn-block">

@@ -10,7 +10,7 @@ class Auth extends CI_Controller
     }
     public function index()
     {
-        $this->form_validation->set_rules('nama', 'Nama', 'required');
+        $this->form_validation->set_rules('username', 'username', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required|trim');
         if ($this->form_validation->run() == false) {
             $data['title'] = 'Welcome to Login Page';
@@ -23,7 +23,7 @@ class Auth extends CI_Controller
     }
     public function login()
     {
-        $username = $this->input->post('nama');
+        $username = $this->input->post('username');
         $password = $this->input->post('password');
 
         $cek_data = $this->db->get_where('login', ['username' => $username])->row_array();
@@ -50,7 +50,7 @@ class Auth extends CI_Controller
     }
     public function regis()
     {
-        $this->form_validation->set_rules('nama', 'Nama', 'required');
+        $this->form_validation->set_rules('username', 'Username', 'required');
         $this->form_validation->set_rules('email', 'Email', 'required|trim', 'valid_email');
         $this->form_validation->set_rules('password', 'Password', 'required|trim');
 
@@ -61,7 +61,7 @@ class Auth extends CI_Controller
             $this->load->view('templates/auth_footer');
         } else {
             $data = [
-                'username' => $this->input->post('nama'),
+                'username' => $this->input->post('username'),
                 'email' => $this->input->post('email'),
                 'role_user' => 2,
                 'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
@@ -71,5 +71,14 @@ class Auth extends CI_Controller
             User Berhasil di tambahkan</div>');
             redirect('auth');
         }
+    }
+    public function logout()
+    {
+        $this->session->unset_userdata('username');
+        $this->session->unset_userdata('role_id');
+
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
+        Anda Telah Logout!</div>');
+        redirect('auth');
     }
 }
