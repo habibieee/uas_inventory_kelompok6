@@ -27,7 +27,13 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <!-- isi table -->
+                            <?php $no=1;  foreach($supplier as $sup ):?>
+                            <th style="text-align: center;"><?= $no++; ?></th>
+                            <th style="text-align: center;"><?= $sup['id_supplier']; ?></th>
+                            <th style="text-align: center;"><?= $sup['nama_supplier']; ?></th>
+                            <th style="text-align: center;"><?= $sup['alamat_supplier']; ?></th>
+                            <th style="text-align: center;"><?= $sup['email_supplier']; ?></th>
+                            <?php  endforeach;?>
                         </tr>
                     </tbody>
                 </table>

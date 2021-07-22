@@ -19,7 +19,8 @@
                         <tr>
                             <th style="text-align: center;">No</th>
                             <th style="text-align: center;">Nama </th>
-                            <th style="text-align: center;">jenis </th>
+                            <th style="text-align: center;">Jenis </th>
+                            <th style="text-align: center;">Jumlah </th>
                             <th style="text-align: center;">Nama Supp</th>
                             <th style="text-align: center;">Email Supp</th>
                             <th style="text-align: center;">Tanggal Masuk</th>
@@ -30,7 +31,18 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <!-- isi table -->
+                            <?php $no=1;  foreach($barang as $brg ):?>
+                            <th style="text-align: center;"><?= $no++; ?></th>
+                            <th style="text-align: center;"><?= $brg['nama_barang']; ?></th>
+                            <th style="text-align: center;"><?= $brg['jenis_barang']; ?></th>
+                            <th style="text-align: center;"><?= $brg['jumlah_barang']; ?></th>
+                            <th style="text-align: center;"><?= $brg['nama_supplier']; ?></th>
+                            <th style="text-align: center;"><?= $brg['email_supplier']; ?></th>
+                            <th style="text-align: center;"><?= $brg['tanggal_masuk']; ?></th>
+                            <th style="text-align: center;"><?= $brg['nama_gudang']; ?></th>
+                            <th style="text-align: center;"><?= $brg['alamat_gudang']; ?></th>
+                            <th></th>
+                            <?php  endforeach;?>
                         </tr>
                     </tbody>
                 </table>

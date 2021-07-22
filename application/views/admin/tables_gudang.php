@@ -27,7 +27,13 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <!-- isi table -->
+                            <?php $no=1;  foreach($gudang as $gdg ):?>
+                            <th style="text-align: center;"><?= $no++; ?></th>
+                            <th style="text-align: center;"><?= $gdg['nama_gudang']; ?></th>
+                            <th style="text-align: center;"><?= $gdg['kepala_gudang']; ?></th>
+                            <th style="text-align: center;"><?= $gdg['alamat_gudang']; ?></th>
+                            <th style="text-align: center;"><?= $gdg['tanggal_masuk']; ?></th>
+                            <?php  endforeach;?>
                         </tr>
                     </tbody>
                 </table>
