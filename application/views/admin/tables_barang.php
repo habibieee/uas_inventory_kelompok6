@@ -4,14 +4,14 @@
     <!-- Page Heading -->
     <h1 class="h3 mb-2 text-gray-800"><?= $title ?></h1>
     <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-        For more information about DataTables, please visit the <a target="_blank"
-            href="https://datatables.net">official DataTables documentation</a>.</p>
+        For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
         </div>
+        <?= $this->session->flashdata('message'); ?>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -30,20 +30,28 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <?php $no=1;  foreach($barang as $brg ):?>
-                            <th style="text-align: center;"><?= $no++; ?></th>
-                            <th style="text-align: center;"><?= $brg['nama_barang']; ?></th>
-                            <th style="text-align: center;"><?= $brg['jenis_barang']; ?></th>
-                            <th style="text-align: center;"><?= $brg['jumlah_barang']; ?></th>
-                            <th style="text-align: center;"><?= $brg['nama_supplier']; ?></th>
-                            <th style="text-align: center;"><?= $brg['email_supplier']; ?></th>
-                            <th style="text-align: center;"><?= $brg['tanggal_masuk']; ?></th>
-                            <th style="text-align: center;"><?= $brg['nama_gudang']; ?></th>
-                            <th style="text-align: center;"><?= $brg['alamat_gudang']; ?></th>
-                            <th></th>
-                            <?php  endforeach;?>
-                        </tr>
+                        <?php $no = 1;
+                        foreach ($barang as $brg) : ?>
+                            <tr>
+                                <th style="text-align: center;"><?= $no++; ?></th>
+                                <th style="text-align: center;"><?= $brg['nama_barang']; ?></th>
+                                <th style="text-align: center;"><?= $brg['jenis_barang']; ?></th>
+                                <th style="text-align: center;"><?= $brg['jumlah_barang']; ?></th>
+                                <th style="text-align: center;"><?= $brg['nama_supplier']; ?></th>
+                                <th style="text-align: center;"><?= $brg['email_supplier']; ?></th>
+                                <th style="text-align: center;"><?= $brg['tanggal_masuk']; ?></th>
+                                <th style="text-align: center;"><?= $brg['nama_gudang']; ?></th>
+                                <th style="text-align: center;"><?= $brg['alamat_gudang']; ?></th>
+                                <th style="text-align: center;">
+                                    <a href="#" class="btn btn-success btn-circle btn-sm">
+                                        <i class="fas fa-check"></i>
+                                    </a>
+                                    <a href="<?= base_url('admin/deleteBarang') ?>/<?= $brg['id_barang'] ?>" class="btn btn-danger btn-circle btn-sm">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </th>
+                            </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
@@ -78,8 +86,7 @@
 </a>
 
 <!-- Logout Modal-->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">

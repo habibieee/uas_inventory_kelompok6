@@ -17,25 +17,30 @@
                 </div>
                 <div class="card-body col-lg-12">
                     <div class="p-5">
-                        <form class="user">
+                        <?php if (validation_errors()) : ?>
+                        <div class="alert alert-danger" role="alert">
+                            <?= validation_errors(); ?>
+                        </div>
+                        <?php endif ?>
+                        <form class="user" action="<?= base_url('admin/insertgudang'); ?>" method="POST">
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                        placeholder="Nama Gudang">
+                                        placeholder="Nama Gudang" name="namagudang">
                                 </div>
                                 <div class="col-sm-6">
                                     <input type="text" class="form-control form-control-user" id="exampleLastName"
-                                        placeholder="Kepala Gudang">
+                                        placeholder="Kepala Gudang" name="kepalagudang">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <input type="text" class="form-control form-control-user" id="exampleFirstName"
-                                        placeholder="Alamat Gudang">
+                                        placeholder="Alamat Gudang" name="alamatgudang">
                                 </div>
                                 <div class="col-sm-6">
                                     <input type="date" class="form-control form-control-user" id="exampleLastName"
-                                        placeholder="Tanggal Masuk ">
+                                        placeholder="Tanggal Masuk " name="tanggalmasuk">
                                 </div>
                             </div>
                             <button type="submit" class=" btn btn-primary btn-user btn-block">

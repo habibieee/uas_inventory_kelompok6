@@ -12,6 +12,7 @@
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
         </div>
+        <?= $this->session->flashdata('message'); ?>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -26,15 +27,25 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php $no = 1;
+                        foreach ($supplier as $sup) : ?>
                         <tr>
-                            <?php $no=1;  foreach($supplier as $sup ):?>
                             <th style="text-align: center;"><?= $no++; ?></th>
                             <th style="text-align: center;"><?= $sup['id_supplier']; ?></th>
                             <th style="text-align: center;"><?= $sup['nama_supplier']; ?></th>
                             <th style="text-align: center;"><?= $sup['alamat_supplier']; ?></th>
                             <th style="text-align: center;"><?= $sup['email_supplier']; ?></th>
-                            <?php  endforeach;?>
+                            <th style="text-align: center;">
+                                <a href="#" class="btn btn-success btn-circle btn-sm">
+                                    <i class="fas fa-check"></i>
+                                </a>
+                                <a href="<?= base_url('admin/deleteBarang') ?>/<?= $sup['id_supplier']; ?>"
+                                    class="btn btn-danger btn-circle btn-sm">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </th>
                         </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
